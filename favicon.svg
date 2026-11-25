@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0f1b2d"/><text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-weight="700" font-size="34" fill="#fff">R<tspan fill="#ff6b2c">.</tspan></text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14254a"/><stop offset="1" stop-color="#0b1424"/></linearGradient>
+    <radialGradient id="glow" cx="50%" cy="38%" r="60%">
+      <stop offset="0" stop-color="#ff6b2c" stop-opacity=".2"/><stop offset="1" stop-color="#ff6b2c" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+  <g transform="translate(-28 0)">
+  <g fill="none" stroke="#ffffff" stroke-width="96" stroke-linejoin="round">
+    <path d="M370 742 V292 H560 A132 132 0 0 1 560 556 H370" stroke-linecap="butt"/>
+    <path d="M540 556 L668 742" stroke-linecap="butt"/>
+  </g>
+  <circle cx="770" cy="694" r="52" fill="#ff6b2c"/></g>
+</svg>
