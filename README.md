@@ -29,6 +29,23 @@ Cada sección tiene su propia dirección: `/#servicios`, `/#planes`, `/#trabajos
 
 Los íconos son SVG propios definidos al inicio de `index.html` con `<symbol>` y se usan con `<svg class="ico"><use href="#i-nombre"/></svg>`.
 
+## Bot de WhatsApp
+
+El repo también incluye un bot para el WhatsApp de Rodríguez Digital (webhook de la WhatsApp Cloud API):
+
+```
+├── api/whatsapp.js        Webhook en Vercel: recibe los mensajes y responde
+├── lib/whatsapp/
+│   ├── textos.js          ⚙️ Lo que responde el bot (menú, planes, mensajes)
+│   ├── bot.js             Decide qué responder (lógica pura, fácil de probar)
+│   ├── cliente.js         Envía mensajes a la API de WhatsApp
+│   └── firma.js           Verifica que los mensajes vienen de Meta
+├── tests/whatsapp.test.js Pruebas (npm test)
+└── .env.example           Variables que hay que poner en Vercel
+```
+
+Configuración paso a paso: **[WHATSAPP-SETUP.md](WHATSAPP-SETUP.md)**.
+
 ## Cambiar tus datos
 
 Todo está en **`js/config.js`**: número de WhatsApp (507 + número, sin `+`), correo y mensajes predeterminados. Se actualizan en todo el sitio.

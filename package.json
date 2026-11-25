@@ -1,0 +1,10 @@
+{
+  "name": "rodriguez-digital",
+  "private": true,
+  "type": "module",
+  "description": "Sitio de Rodríguez Digital + bot de WhatsApp (webhook en Vercel)",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}
