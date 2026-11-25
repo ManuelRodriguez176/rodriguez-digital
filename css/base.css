@@ -1,0 +1,65 @@
+/* ============================================================
+   BASE — variables, reset, tipografía y fondo
+   ============================================================ */
+:root {
+  --bg: #0b1424;
+  --bg-2: #12203a;
+  --panel: #0f1a2e;
+  --text: #eef2f8;
+  --muted: #9aa7bd;
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.28);
+  --card: rgba(255, 255, 255, 0.04);
+  --accent: #ff6b2c;
+  --accent-dark: #e0541a;
+  --accent-soft: rgba(255, 107, 44, 0.14);
+  --green: #25d366;
+  --radius: 14px;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; font-weight: 700; }
+a { color: inherit; }
+img, svg { display: block; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* Fondo propio: brillo naranja + cuadrícula sutil, todo en CSS */
+.backdrop {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(60vmax 40vmax at 50% 38%, rgba(255, 107, 44, 0.20), transparent 60%),
+    radial-gradient(50vmax 50vmax at 85% 110%, rgba(52, 104, 196, 0.25), transparent 60%),
+    linear-gradient(180deg, var(--bg-2), var(--bg));
+}
+.backdrop::after {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 65%);
+          mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 65%);
+  opacity: .45;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
+}

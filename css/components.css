@@ -1,0 +1,62 @@
+/* ============================================================
+   COMPONENTES — botones, íconos, formulario, chips, botón flotante
+   ============================================================ */
+
+/* Íconos SVG propios (definidos en index.html con <symbol>) */
+.ico { width: 1.25em; height: 1.25em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  padding: .8rem 1.4rem; border-radius: 999px;
+  font: 600 .95rem var(--font-body); text-decoration: none; cursor: pointer;
+  border: 1.5px solid var(--line-strong); background: transparent; color: var(--text);
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.btn:hover { border-color: var(--text); transform: translateY(-1px); }
+.btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn--primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.btn--wa { background: var(--green); border-color: var(--green); color: #0b1424; }
+.btn--wa:hover { background: #1fbe5a; border-color: #1fbe5a; }
+.btn--block { width: 100%; }
+.btn-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+
+/* Formulario (16px evita el zoom de Safari en iPhone) */
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form .full { grid-column: 1 / -1; }
+.form label { display: block; font-size: .8rem; font-weight: 600; color: var(--muted); margin-bottom: .35rem; }
+.form input, .form select, .form textarea {
+  width: 100%; padding: .8rem .95rem; border-radius: 10px;
+  border: 1px solid var(--line-strong); background: rgba(255, 255, 255, .05);
+  color: var(--text); font: 16px var(--font-body);
+  -webkit-appearance: none; appearance: none;
+}
+.form input::placeholder, .form textarea::placeholder { color: #6f7d95; }
+.form input:focus, .form select:focus, .form textarea:focus { outline: 2px solid var(--accent); border-color: transparent; }
+.form textarea { resize: vertical; min-height: 90px; }
+.form select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%;
+  background-size: 5px 5px; background-repeat: no-repeat;
+}
+.form select option { color: #111; }
+.form-note { font-size: .78rem; color: var(--muted); margin-top: .75rem; }
+.form-note a { color: var(--text); }
+@media (max-width: 560px) { .form { grid-template-columns: 1fr; } }
+
+/* Chips */
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; }
+.chips li { border: 1px solid var(--line-strong); border-radius: 999px; padding: .15rem .75rem; font-size: .78rem; }
+
+/* Botón flotante de WhatsApp */
+.wa-float {
+  position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: 30;
+  width: 3.5rem; height: 3.5rem; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--green); color: #0b1424;
+  box-shadow: 0 .75rem 1.75rem rgba(0, 0, 0, .4);
+  transition: transform .2s, opacity .25s;
+}
+.wa-float:hover { transform: scale(1.07); }
+.wa-float .ico { width: 1.7rem; height: 1.7rem; stroke-width: 2; }
+body.panel-open .wa-float { opacity: 0; pointer-events: none; }

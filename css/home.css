@@ -1,0 +1,67 @@
+/* ============================================================
+   INICIO — marca, menú en tarjetas y pie
+   ============================================================ */
+.home {
+  min-height: 100vh; min-height: 100dvh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 3rem 1.25rem 2rem; text-align: center;
+  transition: filter .45s var(--ease), transform .45s var(--ease), opacity .45s;
+}
+/* Efecto al abrir una sección: el inicio se aleja y se desenfoca */
+body.panel-open .home { transform: scale(.94); filter: blur(6px); opacity: .35; }
+
+.monogram {
+  width: 4.5rem; height: 4.5rem; border-radius: 1.25rem;
+  display: grid; place-items: center;
+  background: linear-gradient(145deg, #1b2d4f, #0e1830);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 0 0 8px rgba(255, 107, 44, .08), 0 1.25rem 2.5rem -1rem rgba(0, 0, 0, .6);
+  font: 700 2rem var(--font-display);
+  margin-bottom: 1.75rem;
+  animation: rise .7s var(--ease) both;
+}
+.monogram span { color: var(--accent); }
+
+.home h1 {
+  font-size: clamp(2.4rem, 7vw, 4.25rem); letter-spacing: -.02em;
+  animation: rise .7s .08s var(--ease) both;
+}
+.home h1 em { font-style: normal; color: var(--accent); }
+.tagline {
+  max-width: 34rem; margin: 1rem auto 0; color: var(--muted); font-size: clamp(1rem, 2.4vw, 1.15rem);
+  animation: rise .7s .16s var(--ease) both;
+}
+.tagline strong { color: var(--text); }
+
+/* Menú: 4 tarjetas */
+.menu {
+  list-style: none; margin-top: 2.75rem; width: 100%; max-width: 46rem;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem;
+}
+.menu li { animation: rise .7s var(--ease) both; }
+.menu li:nth-child(1) { animation-delay: .24s; }
+.menu li:nth-child(2) { animation-delay: .30s; }
+.menu li:nth-child(3) { animation-delay: .36s; }
+.menu li:nth-child(4) { animation-delay: .42s; }
+.menu a {
+  height: 100%;
+  display: flex; flex-direction: column; align-items: flex-start; gap: .55rem;
+  padding: 1rem 1rem 1.1rem; border-radius: var(--radius);
+  background: var(--card); border: 1px solid var(--line);
+  text-decoration: none; text-align: left;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  transition: border-color .2s, background .2s, transform .25s var(--ease);
+}
+.menu a:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-3px); }
+.menu .ico { width: 1.5rem; height: 1.5rem; color: var(--accent); }
+.menu strong { font-family: var(--font-display); font-size: 1.05rem; }
+.menu small { color: var(--muted); font-size: .78rem; line-height: 1.35; }
+
+.site-footer { margin-top: 3rem; font-size: .8rem; color: var(--muted); }
+.site-footer a { color: var(--muted); }
+
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 720px) {
+  .menu { grid-template-columns: 1fr 1fr; }
+}

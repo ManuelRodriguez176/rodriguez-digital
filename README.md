@@ -6,23 +6,28 @@ Es HTML, CSS y JavaScript puro (sin frameworks ni build), listo para desplegar e
 
 ## Estructura
 
+Diseño y código 100% propios: sin plantillas, sin jQuery y sin librerías de íconos.
+
 ```
-├── index.html            Página única (secciones tipo ventana: Servicios, Planes, Trabajos, Contacto, Privacidad)
+├── index.html          Página única: inicio + secciones que se abren como ventana
 ├── favicon.svg
-├── assets/               Plantilla "Dimension" de HTML5 UP (no editar; ver LICENSE-HTML5UP.txt)
-│   ├── css/  js/  webfonts/  sass/
-├── images/               Fondo de la plantilla
 ├── css/
-│   └── custom.css        Estilos propios: marca, planes, chat de ejemplo, FAQ, botón de WhatsApp
-└── js/                   Módulos propios
-    ├── config.js         ⚙️ Datos del negocio (WhatsApp, correo, mensajes)
-    ├── whatsapp.js       Arma los enlaces wa.me
-    ├── formulario.js     Formulario de cotización → WhatsApp
-    ├── contacto.js       Enlaces de correo y año del footer
-    └── main.js           Punto de entrada: inicializa todo
+│   ├── base.css        Variables de color, reset, tipografía y fondo
+│   ├── components.css  Botones, íconos, formulario, chips, botón flotante
+│   ├── home.css        Inicio: logo, título y menú en tarjetas
+│   └── panel.css       Ventanas de cada sección (planes, FAQ, chat de ejemplo, tablas)
+└── js/
+    ├── config.js       ⚙️ Datos del negocio (WhatsApp, correo, mensajes)
+    ├── paneles.js      Abre/cierra las secciones según el #ancla (Esc, clic fuera, botón atrás)
+    ├── whatsapp.js     Arma los enlaces wa.me
+    ├── formulario.js   Formulario de cotización → WhatsApp
+    ├── contacto.js     Enlaces de correo y año del pie
+    └── main.js         Punto de entrada: inicializa todo
 ```
 
-Las secciones se abren con el ancla del enlace: `/#servicios`, `/#planes`, `/#trabajos`, `/#contacto`, `/#privacidad`.
+Cada sección tiene su propia dirección: `/#servicios`, `/#planes`, `/#trabajos`, `/#contacto`, `/#privacidad`. Sirven para compartir un enlace directo (por ejemplo, mandarle `/#planes` a un cliente).
+
+Los íconos son SVG propios definidos al inicio de `index.html` con `<symbol>` y se usan con `<svg class="ico"><use href="#i-nombre"/></svg>`.
 
 ## Cambiar tus datos
 
@@ -48,10 +53,8 @@ python -m http.server 8000
 
 El sitio no tiene base de datos ni guarda formularios: los mensajes se arman en el navegador y se abren en WhatsApp. Ver la sección `/#privacidad`.
 
-## Licencias y créditos
+## Licencias
 
-- Diseño basado en **[Dimension](https://html5up.net/dimension)** de [HTML5 UP](https://html5up.net), licencia Creative Commons Attribution 3.0. El crédito "Diseño: HTML5 UP" del pie de página es obligatorio por esa licencia: no lo quites.
-- Íconos: Font Awesome Free (íconos CC BY 4.0, fuentes SIL OFL 1.1, código MIT).
-- jQuery: MIT.
-- Fuente Source Sans Pro (Google Fonts): SIL Open Font License 1.1.
-- El logo de WhatsApp es marca de Meta; se usa solo para indicar el canal de contacto.
+- Diseño, código, íconos y textos: propios de Rodríguez Digital.
+- Fuentes Space Grotesk e Inter (Google Fonts): SIL Open Font License 1.1 (no exige crédito visible).
+- WhatsApp es marca de Meta; se menciona solo como canal de contacto.
